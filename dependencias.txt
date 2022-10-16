@@ -20,3 +20,11 @@ adminjs@~5.5.1: repensável por criar o painel administrativo, realizar o crud
 @adminjs/express@~4.0.1 @adminjs/sequelize@~2.1.0: necessário instalar o plugin/conector das bibliotecas/orm utilizadas no projeto
 @adminjs/upload@~2.0.1: fazer upload dos videos, capa dos cursos
 pg@~8.7.1: driver para se conectar com banco de dados postman
+
+###############################################################################
+
+- No entanto, se olharmos o usuário cadastrado no banco de dados veremos que sua senha está exposta, o que não é uma boa prática de segurança. Vamos cuidar para que ela seja encriptada antes de o usuário ser salvo no banco de dados. Para isso precisamos instalar a biblioteca “bcrypt”. Instale-a com o comando abaixo:
+npm install bcrypt@~5.0.1
+
+- Além disso, o bcrypt não possui tipagens, portanto precisamos instalar seus tipos separadamente através do @types:
+npm install --save-dev @types/bcrypt@~5.0.0

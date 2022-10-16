@@ -1,7 +1,7 @@
 import { ResourceWithOptions } from 'adminjs';
 import { categoryResourceOptions } from './category';
 import { Category, Course, Episode } from '../../models';
-import { courseResourceOptions } from './course';
+import { courseResourceFeatures, courseResourceOptions } from './course';
 import { episodeResourceFeatures, episodeResourceOptions } from './episode';
 
 /* tem o propósito de reunir todas opções de todos os recursos criados */
@@ -12,7 +12,8 @@ export const adminJsResources: ResourceWithOptions[] = [
    },
    {
       resource: Course,
-      options: courseResourceOptions
+      options: courseResourceOptions,
+      features: courseResourceFeatures
    },
    {
       resource: Episode,

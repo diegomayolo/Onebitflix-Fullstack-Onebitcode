@@ -4,7 +4,7 @@ import { Episode } from "./Episode";
 import { User } from "./User";
 
 /* Creating a relationship between the two tables. */
-Category.hasMany( Course );
+Category.hasMany( Course, { as: 'courses' } );
 
 Course.belongsTo( Category );
 Course.hasMany( Episode ); 

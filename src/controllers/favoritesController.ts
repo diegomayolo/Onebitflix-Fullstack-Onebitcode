@@ -52,7 +52,7 @@ export const favoritesController = {
       {
          await favoriteService.delete( userId, Number( courseId ) );
 
-         return res.status( 204 ).json();
+         return res.status( 204 ).send();
       }
       
       catch ( error )

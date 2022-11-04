@@ -1,6 +1,6 @@
 import { Like } from "../models"
 
-export const LikeService = {
+export const likeService = {
    /* Creating a new like in the database. */
    create: async ( userId: number, courseId: number ) => {
       const like = await Like.create({
@@ -19,5 +19,17 @@ export const LikeService = {
             courseId
          }
       })
+   },
+
+   /* Checking if the user has liked the course. */
+   isLiked: async (userId: number, courseId: number) => {
+      const like = await Like.findOne({
+        where: {
+          userId,
+          courseId
+        }
+      })
+
+      return like !== null;
    }
 }

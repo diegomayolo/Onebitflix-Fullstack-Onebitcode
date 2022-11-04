@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { AuthenticatedRequest } from "../middlewares/auth";
-import { LikeService } from "../services/likeService";
+import { likeService } from "../services/likeService";
 
 export const likesController = {
    // POST /likes
@@ -10,7 +10,7 @@ export const likesController = {
 
       try
       {
-         const like = await LikeService.create( userId, courseId );
+         const like = await likeService.create( userId, courseId );
 
          return res.status( 201 ).json( like );
       }
@@ -31,7 +31,7 @@ export const likesController = {
 
       try
       {
-         await LikeService.delete( userId, Number( courseId ) );
+         await likeService.delete( userId, Number( courseId ) );
 
          return res.status( 204 ).send();
       }

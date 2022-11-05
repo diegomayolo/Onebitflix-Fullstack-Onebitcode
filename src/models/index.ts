@@ -7,24 +7,24 @@ import { Like } from "./Like";
 import { WatchTime } from "./WatchTime";
 
 /* Creating a relationship between the two tables. */
-Category.hasMany( Course, { as: 'courses' } );
+Category.hasMany( Course );
 
 Course.belongsTo( Category );
+Course.hasMany( Episode );
 Course.belongsToMany( User, { through: Favorite } );
 Course.belongsToMany( User, { through: Like } );
-Course.hasMany( Episode, { as: 'episodes' } );
-Course.hasMany( Favorite, { as: 'FavoritesUsers', foreignKey: 'course_id' } );
+Course.hasMany( Favorite, { as: 'favoritesUsers', foreignKey: 'courseId' } );
 
 Episode.belongsTo( Course );
-Episode.belongsToMany( User, { through: WatchTime } )
+Episode.belongsToMany (User, { through: WatchTime } );
 
 Favorite.belongsTo( Course );
 Favorite.belongsTo( User );
 
 User.belongsToMany( Course, { through: Favorite } );
 User.belongsToMany( Course, { through: Like } );
-User.belongsToMany(Episode, { through: WatchTime })
-User.hasMany(Favorite, { as: 'favorites_courses', foreignKey: 'user_id' })
+User.belongsToMany( Episode, { through: WatchTime } );
+User.hasMany( Favorite, { as: 'favoritesCourses', foreignKey: 'UserId' } );
 
 export {
    Category,

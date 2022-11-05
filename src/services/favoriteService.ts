@@ -7,13 +7,13 @@ export const favoriteService = {
          attributes: [['user_id', 'userId']],
          where: { userId },
          include: {
-            association: 'Course',
+            association: 'course',
             attributes: ['id', 'name', 'synopsis', ['thumbnail_url', 'thumbnailUrl']],
          }
       });
 
       return {
-         userId, courses: favorites.map( favorite => favorite.Course )
+         userId, courses: favorites.map( favorite => favorite.course )
       };
    },
 

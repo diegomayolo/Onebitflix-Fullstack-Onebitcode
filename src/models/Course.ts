@@ -15,7 +15,7 @@ export interface CourseCreationAttributes extends Optional<Course, 'id' | 'thumb
 
 export interface CourseInstance extends Model<Course, CourseCreationAttributes>, Course {};
 
-export const Course = sequelize.define<CourseInstance, Course>('Course',
+export const Course = sequelize.define<CourseInstance, Course>( 'course',
 {
    id: {
      allowNull: false,

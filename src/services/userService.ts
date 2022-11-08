@@ -56,6 +56,13 @@ export const userService = {
       return updatedUsers[0];
    },
 
+   /* Updating the password of the user. */
+   updatePassword: async ( id: number, password: string ) => {
+      const [ affectedRows, updatedUsers ] = await User.update( { password }, { where: { id }, returning: true , individualHooks: true });
+
+      return updatedUsers[0];
+   },
+
    /* Returns the most recent episode of a course that has some assisted progress */
    getKeepWatchingList: async ( userId: number ) => {
       const userWithWatchingEpisodes = await User.findByPk( userId, {

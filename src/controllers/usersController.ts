@@ -22,7 +22,7 @@ export const usersController = {
    },
 
    // PUT /users/current
-   update: async (req: AuthenticatedRequest, res: Response) => {
+   update: async ( req: AuthenticatedRequest, res: Response ) => {
       const { id } = req.user!;
       const { firstName, lastName, phone, birth, email } = req.body;
 
@@ -40,6 +40,32 @@ export const usersController = {
             return res.status( 400 ).json( { message: error.message } );
          }
       }
+   },
+
+   //PUT /users/current/password
+   updatePassword: async ( req: AuthenticatedRequest, res: Response ) => {
+      const user = req.user!;
+      const { currentPassword, newPassword } = req.body;
+
+      user.checkPassword( currentPassword, async ( error, isSame ) => {
+         try
+         {
+            if ( error ) return res.status( 400 ).json( { message: error.message } );
+            if ( !isSame ) return res.status( 400 ).json( { message: "The current password is incorrect." } );
+
+            await userService.updatePassword( user.id, newPassword );
+
+            return res.status( 204 ).send();
+            
+         }
+            catch ( error )
+            {
+               if ( error instanceof Error )
+               {
+                  return res.status( 400 ).json( { message: error.message } );
+               }
+            }
+         } );
    },
 
    // GET /users/current/watching

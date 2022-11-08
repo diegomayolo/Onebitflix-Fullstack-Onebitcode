@@ -31,3 +31,7 @@ npm install bcrypt@~5.0.1
 npm install --save-dev @types/bcrypt@~5.0.0
 npm i -D @types/jsonwebtokens - Tipagem do jwt
 
+###############################################################################
+
+npm i cors -> api pode receber requisições de origem diferente
+npm i -D @types/cors -> evitar problemas com a tipagem da biblioteca cors

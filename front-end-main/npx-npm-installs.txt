@@ -1,0 +1,25 @@
+# Criação do projeto
+
+1. Nós iremos deixar o front e o back em uma única pasta, para nós termos uma facilidade de organização. Nós iremos chamar de “onebitflix-main”
+    1. Agora com essa pasta criada, nós iremos colocar o backend aqui e também iremos abrir o terminal na pasta “onbebitflix-main”
+2. Se for a primeira vez com o next, o próprio npx irá informar o que é necessário instalar para prosseguir com o comando.
+    1. O comando é semelhante ao comando dado para criar o app do react. Nós iremos colocar o adicional do typescript, para o projeto já ter ele como base.
+    
+    npx create-next-app onebitflix-front --ts
+    
+3. Agora vamos abrir a pasta “onebitflix-front” com o nosso vscode
+4. Instalação das bibliotecas com as suas versões fixas:
+
+npm install aos@2.3.4 axios@0.26.1 bootstrap@5.1.3 swr@1.3.0 react-modal@3.14.4 react-player@2.10.0 reactstrap@9.0.2 sass@1.50.1
+
+aos: biblioteca de animação
+axios: consome o backend
+bootstrap, reactstrap: framework css
+react-modal: gerar modal
+react-player: responsável por reproduzir os vídeos
+sass: css com algumas vantagens
+swr: biblioteca para ter benefícios com as conexões
+#####################################################
+
+Dependências de desenvolvimento
+npm install @types/aos@3.0.4 @types/react-modal@3.13.1 -D
